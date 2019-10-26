@@ -6,4 +6,10 @@ function sum(x, y) {
     return x + y;
 }
 
-console.log(sum(3,5));
+for (var i = 0, l = length; i < l; i++) {
+
+
+}
+
+
+// console.log(sum(3,5));

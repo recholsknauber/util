@@ -1,4 +1,5 @@
 ## Balancing Y labels amongst a variety of features in X.
+## Returns X_train, X_test, Y_train, Y_test
 
 from warnings import warn
 
