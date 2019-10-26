@@ -1,3 +1,5 @@
+## Balancing Y labels amongst a variety of features in X.
+
 from warnings import warn
 
 import numpy as np
