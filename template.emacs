@@ -62,6 +62,7 @@ There are two things you can do about this warning:
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
 
 ;;For node.js as an inferior shell with M-x run-js
+(require 'js-comint)
 (defun node-repl () (interactive)
      (setenv "NODE_NO_READLINE" "1") ;avoid fancy terminal codes
      (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive")))
