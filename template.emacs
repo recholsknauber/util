@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(custom-enabled-themes (quote (wheatgrass)))
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (xref-js2 js2-refactor js2-mode))))
+ '(package-selected-packages (quote (js-comint xref-js2 js2-refactor js2-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -60,3 +60,9 @@ There are two things you can do about this warning:
 
 (add-hook 'js2-mode-hook (lambda ()
   (add-hook 'xref-backend-functions #'xref-js2-xref-backend nil t)))
+
+;;For node.js as an inferior shell with M-x run-js
+(defun node-repl () (interactive)
+     (setenv "NODE_NO_READLINE" "1") ;avoid fancy terminal codes
+     (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive")))
+   (node-repl)
