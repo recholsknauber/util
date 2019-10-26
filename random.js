@@ -6,9 +6,10 @@ function sum(x, y) {
     return x + y;
 }
 
-for (var i = 0, l = length; i < l; i++) {
-
-
+let sum_of_plus_one=0;
+for (var i = 0, l = 1; l < 100; i++) {
+    sum_of_plus_one += sum(i,l);
+    l++;
 }
 
 
