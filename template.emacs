@@ -63,7 +63,7 @@ There are two things you can do about this warning:
 
 ;;For node.js as an inferior shell with M-x run-js
 (require 'js-comint)
-(defun node-repl () (interactive)
-     (setenv "NODE_NO_READLINE" "1") ;avoid fancy terminal codes
-     (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive")))
-   (node-repl)
+;;(defun node-repl () (interactive)
+;;     (setenv "NODE_NO_READLINE" "1") ;avoid fancy terminal codes
+;;     (pop-to-buffer (make-comint "node-repl" "node" nil "--interactive")))
+;;   (node-repl)
