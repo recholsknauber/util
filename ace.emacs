@@ -3,14 +3,14 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (wheatgrass)))
+ '(custom-enabled-themes (quote (zenburn)))
  '(custom-safe-themes
    (quote
-    ("d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
+    ("cdb4ffdecc682978da78700a461cdc77456c3a6df1c1803ae2dd55c59fa703e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
+    (zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,8 +41,8 @@ There are two things you can do about this warning:
 (package-initialize)
 
 ;; THEME
-;;(require 'solarized-theme)
-;;(load-theme 'solarized-light t)
+(require 'zenburn-theme)
+(load-theme 'zenburn t)
 
 
 ;; Bringing Magit
