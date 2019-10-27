@@ -3,9 +3,11 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
- '(custom-enabled-themes (quote (wheatgrass)))
+;; '(custom-enabled-themes (quote (wheatgrass)))
  '(inhibit-startup-screen t)
- '(package-selected-packages (quote (magit js-comint xref-js2 js2-refactor js2-mode))))
+ '(package-selected-packages
+   (quote
+    (solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -35,11 +37,16 @@ There are two things you can do about this warning:
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
+;; THEME
+(require 'solarized-theme)
+(load-theme 'solarized-light t)
+
+
 ;; Bringing Magit
 (require 'package)
 (add-to-list 'package-archives
              '("melpa" . "http://melpa.org/packages/") t)
-
+(global-set-key (kbd "C-x g") 'magit-status)
 
 
 ;;; From js-comint.el:
