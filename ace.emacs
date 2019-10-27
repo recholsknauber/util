@@ -3,7 +3,10 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
-;; '(custom-enabled-themes (quote (wheatgrass)))
+ '(custom-enabled-themes (quote (wheatgrass)))
+ '(custom-safe-themes
+   (quote
+    ("d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
@@ -38,8 +41,8 @@ There are two things you can do about this warning:
 (package-initialize)
 
 ;; THEME
-(require 'solarized-theme)
-(load-theme 'solarized-light t)
+;;(require 'solarized-theme)
+;;(load-theme 'solarized-light t)
 
 
 ;; Bringing Magit
