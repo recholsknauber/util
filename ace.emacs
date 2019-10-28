@@ -401,3 +401,8 @@ If no region selected, you could manually input javascript expression."
 
 (provide 'js-comint)
 ;;; js-comint.el ends here
+
+
+;; Org Languages
+(org-babel-do-load-languages
+ 'org-babel-load-languages '((python . t)))
