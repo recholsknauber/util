@@ -10,7 +10,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
+    (csv-mode zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
