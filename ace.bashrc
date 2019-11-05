@@ -2,11 +2,11 @@
 # see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
 # for examples
 
-alias gitl="git pull origin master --allow-unrelated-histories;"
+alias gitl="git pull origin master --allow-unrelated-hiistories;"
 alias gits="git add .; git commit -m '<(-.-<)'; git push origin master;"
 alias ej="cd kar; git pull origin master; emacs journal.org"
 alias gitsku="cp ~/.emacs ~/util/ace.emacs; cp ~/.bashrc ~/util/ace.bashrc; cd ~/kar; git add .; git commit -m '<(-.-<)'; git push origin master; cd ~/util; git add .; git commit -m '<(-.-<)'; git push origin master; cd ~;"
-
+alias aws="ssh -i ~/data/'UbuntuServer.pem' ubuntu@ec2-3-15-156-116.us-east-2.compute.amazonaws.com"
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
