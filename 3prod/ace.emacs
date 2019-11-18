@@ -403,6 +403,23 @@ If no region selected, you could manually input javascript expression."
 ;;; js-comint.el ends here
 
 
+;;;;;     ORG     ;;;;;
+;; GTD
+(setq org-agenda-files '("~/kar/inbox.org"
+			 "~/kar/boom.org"
+			 "~/kar/ticker.org"))
+
+(setq org-capture-templates '(("t" "Todo [inbox]" entry
+			       (file+headline "~/kar/inbox.org" "Tasks")
+			       "* TODO %i%?")
+			      ("T" "Tickler" entry
+			       (file+headline "~/kar/ticker.org" "Ticker")
+			       "* %i%? \n %U")))
+
+(setq org-refile-targets '(("~/kar/boom.org" :maxlevel . 3)
+			   ("~/kar/someday.org" :level . 1)
+			   ("~/kar/ticker.org" :maxlevel . 2)))
+
 ;; Org Languages
 (org-babel-do-load-languages
  'org-babel-load-languages '((python . t)))
