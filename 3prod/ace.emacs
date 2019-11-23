@@ -423,3 +423,6 @@ If no region selected, you could manually input javascript expression."
 ;; Org Languages
 (org-babel-do-load-languages
  'org-babel-load-languages '((python . t)))
+
+;; Set Keys
+;; (global-set-key (kbd "M-x butterfly") ')
