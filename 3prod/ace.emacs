@@ -9,7 +9,7 @@
  '(inhibit-startup-screen t)
  '(package-selected-packages
    (quote
-    (csv-mode zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
+    (company csv-mode zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
  '(custom-enabled-themes (quote (zenburn)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
@@ -421,8 +421,16 @@ If no region selected, you could manually input javascript expression."
 			   ("~/kar/ticker.org" :maxlevel . 2)))
 
 ;; Org Languages
-(org-babel-do-load-languages
- 'org-babel-load-languages '((python . t)))
+(require 'ob-python)
+(require 'ob-emacs-lisp)
+(require 'ob-clojure)
 
-;; Set Keys
+;; Company Mode for autocomplete
+(use-package company
+	     :ensure t
+	     :config
+	     (progn
+	       (add-hook 'after-init-hook 'global-company-mode)))
+
+;; Defining startup commands
 ;; (global-set-key (kbd "M-x butterfly") ')
