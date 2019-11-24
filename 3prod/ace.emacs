@@ -43,7 +43,8 @@ There are two things you can do about this warning:
 ;; THEME
 (require 'zenburn-theme)
 (load-theme 'zenburn t)
-
+(blink-cursor-mode 0)
+(setq-default cursor-type 'hollow)
 
 ;; Bringing Magit
 (require 'package)
