@@ -451,6 +451,24 @@ If no region selected, you could manually input javascript expression."
 ;; 			   ("~/kar/someday.org" :level . 1)
 ;; 			   ("~/kar/ticker.org" :maxlevel . 2)))
 
+;; Dired Sidebar
+(use-package dired-sidebar
+  :bind (("C-c s" . dired-sidebar-toggle-sidebar))
+  :ensure t
+  :commands (dired-sidebar-toggle-sidebar))
+  ;; :init
+  ;; (add-hook 'dired-sidebar-mode-hook
+  ;; 	    (lambda ()
+  ;; 	      (unless (file-remote-p default-directory)
+  ;; 		(auto-revert-mode))))
+  ;; :config
+  ;; (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+  ;; (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
+
+  (setq dired-sidebar-subtree-line-prefix "__")
+  (setq dired-sidebar-theme 'vscode)
+  (setq dired-sidebar-use-term-integration t)
+
 ;; Speed Keys
 (setq org-use-speed-commands '1)
 
@@ -469,5 +487,5 @@ If no region selected, you could manually input javascript expression."
 ;; Defining startup commands
 ;; (global-set-key (kbd "M-x butterfly") ')
 (global-set-key (kbd "C-c c") 'company-complete)
-(global-set-key (kbd "C-c x") '
+(global-set-key (kbd "C-c x") 'org-edit-src-code)
 (global-set-key (kbd "C-x g") 'magit-status)
