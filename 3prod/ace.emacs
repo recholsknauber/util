@@ -77,9 +77,9 @@ There are two things you can do about this warning:
 (setq-default cursor-type 'hollow)
 
 ;; Bringing Magit
-(require 'package)
-(add-to-list 'package-archives
-             '("melpa" . "http://melpa.org/packages/") t)
+;; (require 'package)
+;; (add-to-list 'package-archives
+;;              '("melpa" . "http://melpa.org/packages/") t)
 (global-set-key (kbd "C-x g") 'magit-status)
 
 
@@ -469,4 +469,5 @@ If no region selected, you could manually input javascript expression."
 ;; Defining startup commands
 ;; (global-set-key (kbd "M-x butterfly") ')
 (global-set-key (kbd "C-c c") 'company-complete)
+(global-set-key (kbd "C-c x") '
 (global-set-key (kbd "C-x g") 'magit-status)
