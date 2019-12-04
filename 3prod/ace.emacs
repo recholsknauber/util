@@ -3,14 +3,44 @@
  ;; If you edit it by hand, you could mess it up, so be careful.
  ;; Your init file should contain only one such instance.
  ;; If there is more than one, they won't work right.
+ '(company-quickhelp-color-background "#4F4F4F")
+ '(company-quickhelp-color-foreground "#DCDCCC")
+ '(custom-enabled-themes (quote (misterioso)))
  '(custom-safe-themes
    (quote
     ("cdb4ffdecc682978da78700a461cdc77456c3a6df1c1803ae2dd55c59fa703e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
+ '(fci-rule-color "#383838")
  '(inhibit-startup-screen t)
+ '(nrepl-message-colors
+   (quote
+    ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (company csv-mode zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode))))
- '(custom-enabled-themes (quote (zenburn)))
+    (company csv-mode zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
+ '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
+ '(vc-annotate-background "#2B2B2B")
+ '(vc-annotate-color-map
+   (quote
+    ((20 . "#BC8383")
+     (40 . "#CC9393")
+     (60 . "#DFAF8F")
+     (80 . "#D0BF8F")
+     (100 . "#E0CF9F")
+     (120 . "#F0DFAF")
+     (140 . "#5F7F5F")
+     (160 . "#7F9F7F")
+     (180 . "#8FB28F")
+     (200 . "#9FC59F")
+     (220 . "#AFD8AF")
+     (240 . "#BFEBBF")
+     (260 . "#93E0E3")
+     (280 . "#6CA0A3")
+     (300 . "#7CB8BB")
+     (320 . "#8CD0D3")
+     (340 . "#94BFF3")
+     (360 . "#DC8CC3"))))
+ '(vc-annotate-very-old-color "#DC8CC3"))
+;; '(custom-enabled-themes (quote (zenburn)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -41,8 +71,8 @@ There are two things you can do about this warning:
 (package-initialize)
 
 ;; THEME
-(require 'zenburn-theme)
-(load-theme 'zenburn t)
+;;(require 'zenburn-theme)
+;;(load-theme 'zenburn t)
 (blink-cursor-mode 0)
 (setq-default cursor-type 'hollow)
 
@@ -406,20 +436,23 @@ If no region selected, you could manually input javascript expression."
 
 ;;;;;     ORG     ;;;;;
 ;; GTD
-(setq org-agenda-files '("~/kar/inbox.org"
-			 "~/kar/boom.org"
-			 "~/kar/ticker.org"))
+;; (setq org-agenda-files '("~/kar/inbox.org"
+;; 			 "~/kar/boom.org"
+;; 			 "~/kar/ticker.org"))
 
-(setq org-capture-templates '(("t" "Todo [inbox]" entry
-			       (file+headline "~/kar/inbox.org" "Tasks")
-			       "* TODO %i%?")
-			      ("T" "Tickler" entry
-			       (file+headline "~/kar/ticker.org" "Ticker")
-			       "* %i%? \n %U")))
+;; (setq org-capture-templates '(("t" "Todo [inbox]" entry
+;; 			       (file+headline "~/kar/inbox.org" "Tasks")
+;; 			       "* TODO %i%?")
+;; 			      ("T" "Tickler" entry
+;; 			       (file+headline "~/kar/ticker.org" "Ticker")
+;; 			       "* %i%? \n %U")))
 
-(setq org-refile-targets '(("~/kar/boom.org" :maxlevel . 3)
-			   ("~/kar/someday.org" :level . 1)
-			   ("~/kar/ticker.org" :maxlevel . 2)))
+;; (setq org-refile-targets '(("~/kar/boom.org" :maxlevel . 3)
+;; 			   ("~/kar/someday.org" :level . 1)
+;; 			   ("~/kar/ticker.org" :maxlevel . 2)))
+
+;; Speed Keys
+(setq org-use-speed-commands '1)
 
 ;; Org Languages
 (require 'ob-python)
@@ -435,3 +468,5 @@ If no region selected, you could manually input javascript expression."
 
 ;; Defining startup commands
 ;; (global-set-key (kbd "M-x butterfly") ')
+(global-set-key (kbd "C-c c") 'company-complete)
+(global-set-key (kbd "C-x g") 'magit-status)
