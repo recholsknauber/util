@@ -8,7 +8,7 @@
  '(custom-enabled-themes (quote (misterioso)))
  '(custom-safe-themes
    (quote
-    ("cdb4ffdecc682978da78700a461cdc77456c3a6df1c1803ae2dd55c59fa703e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
+    ("ed648f9c55e06ef2bfc8ac5967a1d9086f31f7a8b2ed05229988cd26fa0f74a6" "d6c37a914c75fe47f552c9789170dc0879be13811dd70cc34ad983da30d7c1f7" "cdb4ffdecc682978da78700a461cdc77456c3a6df1c1803ae2dd55c59fa703e3" "d91ef4e714f05fff2070da7ca452980999f5361209e679ee988e3c432df24347" "0598c6a29e13e7112cfbc2f523e31927ab7dce56ebb2016b567e1eff6dc1fd4f" default)))
  '(fci-rule-color "#383838")
  '(inhibit-startup-screen t)
  '(nrepl-message-colors
@@ -433,24 +433,6 @@ If no region selected, you could manually input javascript expression."
 (provide 'js-comint)
 ;;; js-comint.el ends here
 
-
-;;;;;     ORG     ;;;;;
-;; GTD
-;; (setq org-agenda-files '("~/kar/inbox.org"
-;; 			 "~/kar/boom.org"
-;; 			 "~/kar/ticker.org"))
-
-;; (setq org-capture-templates '(("t" "Todo [inbox]" entry
-;; 			       (file+headline "~/kar/inbox.org" "Tasks")
-;; 			       "* TODO %i%?")
-;; 			      ("T" "Tickler" entry
-;; 			       (file+headline "~/kar/ticker.org" "Ticker")
-;; 			       "* %i%? \n %U")))
-
-;; (setq org-refile-targets '(("~/kar/boom.org" :maxlevel . 3)
-;; 			   ("~/kar/someday.org" :level . 1)
-;; 			   ("~/kar/ticker.org" :maxlevel . 2)))
-
 ;; Dired Sidebar
 (use-package dired-sidebar
   :bind (("C-c s" . dired-sidebar-toggle-sidebar))
@@ -469,14 +451,6 @@ If no region selected, you could manually input javascript expression."
   (setq dired-sidebar-theme 'vscode)
   (setq dired-sidebar-use-term-integration t)
 
-;; Speed Keys
-(setq org-use-speed-commands '1)
-
-;; Org Languages
-(require 'ob-python)
-(require 'ob-emacs-lisp)
-(require 'ob-clojure)
-
 ;; Company Mode for autocomplete
 (use-package company
 	     :ensure t
@@ -484,7 +458,27 @@ If no region selected, you could manually input javascript expression."
 	     (progn
 	       (add-hook 'after-init-hook 'global-company-mode)))
 
-;; Defining startup commands
+
+;;;;;     ORG     ;;;;;
+
+;; Speed Keys
+(setq org-use-speed-commands t)
+
+;;; SRC code blocks ;;;
+;; Org Languages
+(require 'ob-python)
+(require 'ob-emacs-lisp)
+(require 'ob-clojure)
+
+;; Fontify code blocks ;;
+(setq org-src-fontify-natively t)
+
+;; Black background for code blocks ;;
+(defface org-block-background
+  '((t (:background "#000000")))
+  "Face used for the source block background.")
+
+;;;;;     SET KEYS     ;;;;;;
 ;; (global-set-key (kbd "M-x butterfly") ')
 (global-set-key (kbd "C-c c") 'company-complete)
 (global-set-key (kbd "C-c x") 'org-edit-src-code)
