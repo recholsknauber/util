@@ -16,7 +16,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (company csv-mode zenburn-theme solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
+    (company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -451,6 +451,8 @@ If no region selected, you could manually input javascript expression."
   (setq dired-sidebar-theme 'vscode)
   (setq dired-sidebar-use-term-integration t)
 
+(setq dired-sidebar-theme 'icons)
+
 ;; Company Mode for autocomplete
 (use-package company
 	     :ensure t
@@ -458,6 +460,14 @@ If no region selected, you could manually input javascript expression."
 	     (progn
 	       (add-hook 'after-init-hook 'global-company-mode)))
 
+;; Company Mode company-jedi for python
+;; (use-package jedi-core
+;;   :ensure t
+;;   :config
+;;   (setq python-environment-directory "~/.emacs.d/.python-environments")
+(defun my/python-mode-hook ()
+  (add-to-list 'company-backends 'company-jedi))
+(add-hook 'python-mode-hook 'my/python-mode-hook)
 
 ;;;;;     ORG     ;;;;;
 
@@ -474,12 +484,11 @@ If no region selected, you could manually input javascript expression."
 (setq org-src-fontify-natively t)
 
 ;; Black background for code blocks ;;
-(defface org-block-background
-  '((t (:background "#000000")))
-  "Face used for the source block background.")
+;; (defface org-block-background
+;;   '((t (:background "#000000")))
+;;   "Face used for the source block background.")
 
 ;;;;;     SET KEYS     ;;;;;;
 ;; (global-set-key (kbd "M-x butterfly") ')
 (global-set-key (kbd "C-c c") 'company-complete)
-(global-set-key (kbd "C-c x") 'org-edit-src-code)
 (global-set-key (kbd "C-x g") 'magit-status)
