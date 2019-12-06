@@ -47,3 +47,5 @@ allbirdteams
                               (search-forward (char-to-string char)
                                               nil nil arg)
                               (point))))
+
+(emacs-version)
