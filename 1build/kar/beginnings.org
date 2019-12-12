@@ -1,7 +1,15 @@
-* Hello
+* Hell
 #+NAME: calc_clojure
 #+BEGIN_SRC clojure
   (defn greet [name] (str "Hello, " name) )
   (greet "joey")
 #+END_SRC
 #+RESULTS: calc_clojure
+* Heaven
+** lisp
+#+NAME: calc_elisp
+#+BEGIN_SRC emacs-lisp
+ (* 4 55)
+(/ 2 3)
+#+END_SRC
+#+RESULTS: calc_elisp
