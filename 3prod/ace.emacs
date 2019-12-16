@@ -16,7 +16,7 @@
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
  '(package-selected-packages
    (quote
-    (company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
+    (pdf-tools cider-hydra dired-sidebar slime clojure-mode company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -434,24 +434,24 @@ If no region selected, you could manually input javascript expression."
 ;;; js-comint.el ends here
 
 ;; Dired Sidebar
-(use-package dired-sidebar
-  :bind (("C-c s" . dired-sidebar-toggle-sidebar))
-  :ensure t
-  :commands (dired-sidebar-toggle-sidebar))
-  ;; :init
-  ;; (add-hook 'dired-sidebar-mode-hook
-  ;; 	    (lambda ()
-  ;; 	      (unless (file-remote-p default-directory)
-  ;; 		(auto-revert-mode))))
-  ;; :config
-  ;; (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
-  ;; (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
+;; (use-package dired-sidebar
+;;   :bind (("C-c s" . dired-sidebar-toggle-sidebar))
+;;   :ensure t
+;;   :commands (dired-sidebar-toggle-sidebar))
+;;   ;; :init
+;;   ;; (add-hook 'dired-sidebar-mode-hook
+;;   ;; 	    (lambda ()
+;;   ;; 	      (unless (file-remote-p default-directory)
+;;   ;; 		(auto-revert-mode))))
+;;   ;; :config
+;;   ;; (push 'toggle-window-split dired-sidebar-toggle-hidden-commands)
+;;   ;; (push 'rotate-windows dired-sidebar-toggle-hidden-commands)
 
-  (setq dired-sidebar-subtree-line-prefix "__")
-  (setq dired-sidebar-theme 'vscode)
-  (setq dired-sidebar-use-term-integration t)
+;;   (setq dired-sidebar-subtree-line-prefix "__")
+;;   (setq dired-sidebar-theme 'vscode)
+;;   (setq dired-sidebar-use-term-integration t)
 
-(setq dired-sidebar-theme 'icons)
+;; (setq dired-sidebar-theme 'icons)
 
 ;; Company Mode for autocomplete
 (use-package company
@@ -476,9 +476,16 @@ If no region selected, you could manually input javascript expression."
 
 ;;; SRC code blocks ;;;
 ;; Org Languages
+(require 'org)
 (require 'ob-python)
 (require 'ob-emacs-lisp)
+; Clojure + Cider;
+(add-to-list 'load-path "/full-path-to/org-mode/lisp")
 (require 'ob-clojure)
+(setq org-babel-clojure-backend 'cider)
+(require 'cider)
+;; Cider Hydra
+(add-hook 'clojure-mode-hook #'cider-hydra-mode)
 
 ;; Fontify code blocks ;;
 (setq org-src-fontify-natively t)
@@ -492,3 +499,6 @@ If no region selected, you could manually input javascript expression."
 ;; (global-set-key (kbd "M-x butterfly") ')
 (global-set-key (kbd "C-c c") 'company-complete)
 (global-set-key (kbd "C-x g") 'magit-status)
+
+;;;;; LANGUAGE ENVIRONMENT FOR JAPANESE/CHINESE ;;;;;
+(set-language-environment "UTF-8")
