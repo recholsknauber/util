@@ -475,6 +475,9 @@ There are two things you can do about this warning:
 ;;   '((t (:background "#000000")))
 ;;   "Face used for the source block background.")
 
+;; Beacon cursor ;;
+(beacon-mode 1)
+
 ;;;;;     SET KEYS     ;;;;;;
 ;; (global-set-key (kbd "M-x butterfly") ')
 (global-set-key (kbd "C-c c") 'company-complete)
