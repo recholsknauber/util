@@ -1,3 +1,8 @@
+* Leiningen Basics
+** Create a new project with "lein new app $NAME"
+** project.clj lists a description, URL, dependencies etc.
+** Clojars is to Clojure what NPM is to JS.
+** Leiningen also uses Maven Central, which is the wider JVM community.
 * Learn Clojure Notes
 ** nil is NULL
 ** Symbols that start with a leading colon " : " are keywords
