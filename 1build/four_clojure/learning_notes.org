@@ -1,0 +1,26 @@
+* Learn Clojure Notes
+** nil is NULL
+** Symbols that start with a leading colon " : " are keywords
+** 4 collection types with literal syntax
+*** '(1 2 3) list
+*** [1 2 3] vector
+*** #{1 2 3} set
+*** {:a 1, :b 2} map
+** Java Evaluation is Source Code (characters) --> Compiler (to bytecode) --> JVM --> Effect!
+** Clojure Evaluation is Source Code (characters) --> Reader (to data structures) --> Compiler (to bytecode) --> JVM --> Effect!
+** REPL = Read-Eval-Print-Loop
+*** Reads an expression to produce Clojure data.
+*** Evaluate the date to yield a result.
+*** Print the result by converting from data back to characters.
+*** Loop back to the beginning.
+** In the REPL, "*1" signifies the last result, "*2" the result 2 expressions ago, etc.
+** The doc function displays documentation (and returns nil as the result)
+*** (doc +) will display the documentation for +
+** find-doc returns a search that includes the docstrings of functions themselves
+** source to see the underlying source
+** def is used to save a piece of data for later
+*** (def x 88) sets the symbol "x" to 88
+** println prints with newline, print without
+#+BEGIN_SRC clojure
+(+ 1 2)
+#+END_SRC
