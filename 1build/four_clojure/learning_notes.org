@@ -58,4 +58,35 @@
 #+END_SRC
 #+RESULTS:
 : nil
-* 
+* Learn Clojure: Functions Notes
+** Named Functions
+*** Functions defined with defn
+#+BEGIN_SRC clojure :results output
+  (defn love [thing] (str "I love " thing "."))
+  (println (love "life"))
+#+END_SRC
+#+RESULTS:
+: I love life.
+** Multi-Arity Functions
+*** Functions defined with different #'s of parameters (different "arity")
+#+BEGIN_SRC clojure :results output
+  (defn love
+    ([] (str "I love everything!"))
+    ([thing] (str "I love " thing "."))
+    )
+  (println (love))
+#+END_SRC
+#+RESULTS:
+: I love everything!
+** Variadic Functions
+*** Functions with a variable number of parameters.
+*** The variable parameters are collected in a list.
+#+BEGIN_SRC clojure :results output
+  (defn love [thing & magnitude]
+    (println (str "I love " thing " " magnitude ".")))
+  (println (love "Portland" "like a fat kid" "loves cake"))
+#+END_SRC
+#+RESULTS:
+: I love Portland ("like a fat kid" "loves cake").
+: nil
+** 
