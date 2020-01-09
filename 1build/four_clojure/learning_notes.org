@@ -26,6 +26,9 @@
 ** def is used to save a piece of data for later
 *** (def x 88) sets the symbol "x" to 88
 ** println prints with newline, print without
-#+BEGIN_SRC clojure
-(+ 1 2)
+#+BEGIN_SRC clojure :results output
+(println (+ 1 2))
 #+END_SRC
+
+#+RESULTS:
+: 3
