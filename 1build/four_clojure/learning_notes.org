@@ -89,4 +89,35 @@
 #+RESULTS:
 : I love Portland ("like a fat kid" "loves cake").
 : nil
-** 
+** Anonymous Functions
+*** Created with fn (cannot be refered to later)
+#+BEGIN_SRC clojure :results output
+  ((fn [thing] (println (str "I love " thing "."))) "Olivia")
+#+END_SRC
+#+RESULTS:
+: I love Olivia.
+** Shorter Anonymous Functions
+*** Created with #()
+*** % is used for a single parameter
+*** %1, %2, %3 etc are used for multiple params
+*** %& for variadic params
+*** Nesting anonymous functions is not allowed
+#+BEGIN_SRC clojure :results output
+  (println (#(+ 6 %) 9))
+  (println (#(+ 6 %1 %2) 9 8 ))
+#+END_SRC
+#+RESULTS:
+: 15
+: 23
+** Apply
+*** For when arguments are stored in a sequence.
+*** At least the last argument MUST be a sequence.
+#+BEGIN_SRC clojure :results output
+  (defn love [thing & magnitude]
+      (println (str "I love " thing " " magnitude ".")))
+  (def morethwords '("more than words " "can " "say"))
+  (println (apply love "Olivia" morethwords))
+#+END_SRC
+#+RESULTS:
+: I love Olivia ("more than words " "can " "say").
+: nil
