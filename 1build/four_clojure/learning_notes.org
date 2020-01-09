@@ -3,7 +3,7 @@
 ** project.clj lists a description, URL, dependencies etc.
 ** Clojars is to Clojure what NPM is to JS.
 ** Leiningen also uses Maven Central, which is the wider JVM community.
-* Learn Clojure Notes
+* Learn Clojure: Syntax Notes
 ** nil is NULL
 ** Symbols that start with a leading colon " : " are keywords
 ** 4 collection types with literal syntax
@@ -22,13 +22,40 @@
 ** The doc function displays documentation (and returns nil as the result)
 *** (doc +) will display the documentation for +
 ** find-doc returns a search that includes the docstrings of functions themselves
+** dir will show a full list of functions in a namespace
 ** source to see the underlying source
 ** def is used to save a piece of data for later
 *** (def x 88) sets the symbol "x" to 88
 ** println prints with newline, print without
+** Test Problems
 #+BEGIN_SRC clojure :results output
 (println (+ 1 2))
 #+END_SRC
-
 #+RESULTS:
 : 3
+#+BEGIN_SRC clojure :results output
+(println (+ 7654 1234))
+#+END_SRC
+#+RESULTS:
+: 8888
+#+BEGIN_SRC clojure :results output
+  (println (/ (+ (* 3 4) 7 5) 10))
+#+END_SRC
+#+RESULTS:
+: 12/5
+#+BEGIN_SRC clojure :results output
+  (require '[clojure.repl :refer :all])
+  (println (doc mod))
+#+END_SRC
+#+RESULTS:
+: -------------------------
+: clojure.core/mod
+: ([num div])
+:   Modulus of num and div. Truncates toward negative infinity.
+: nil
+#+BEGIN_SRC clojure
+  (println (find-doc "stack"))
+#+END_SRC
+#+RESULTS:
+: nil
+* 
