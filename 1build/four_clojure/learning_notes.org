@@ -121,3 +121,26 @@
 #+RESULTS:
 : I love Olivia ("more than words " "can " "say").
 : nil
+** Lets
+*** Binding symbols in a local scope (taking precedence over the outer context).
+#+BEGIN_SRC clojure :results output
+  (println
+  (let [x 1
+	y 2]
+    (+ x y))
+  )
+#+END_SRC
+#+RESULTS:
+: 3
+* Learn Clojure: Function Test Problems
+** 1) Define a function greet that takes no arguments and prints "Hello". Replace the with the implementation: (defn greet [] )
+#+BEGIN_SRC clojure :results output
+  (defn greet [] (println "Hello."))
+  (greet)
+#+END_SRC
+#+RESULTS:
+: Hello.
+** 2) Redefine greet using def, first with the fn special form and then with the #() reader macro.
+#+BEGIN_SRC clojure :results output
+
+#+END_SRC
