@@ -195,3 +195,41 @@
 #+RESULTS:
 
 * Learn Clojure: Sequential Collections Notes
+** 4 collection types: vectors, lists, sets, and maps.
+*** Vectors and lists are ordered
+** Vectors: Ordered, Mutable
+*** [1 2 3]
+*** Use "get" to retrieve an element by index
+#+BEGIN_SRC clojure :results output
+  (println
+   (get ["Olivia" "Liam" "Ryan"] 0)
+   )
+#+END_SRC
+#+RESULTS:
+: Olivia
+*** Count
+#+BEGIN_SRC clojure :results output
+  (println
+   (count [1 2 3 4 5 6 7])
+   )
+#+END_SRC
+#+RESULTS:
+: 7
+*** Vector
+**** In addition to using [ ], you can create Clojure vectors with
+#+BEGIN_SRC clojure :results output
+  (println
+   (vector 1 2 3)
+   )
+#+END_SRC
+#+RESULTS:
+: [1 2 3]
+*** Adding elements with conj (conjoin)
+#+BEGIN_SRC clojure :results output
+  (println
+   (conj ["Olivia" "Liam" "Ryan"] "Claudia" "Carolyn" "Scott" "Ellycia" "Steve" "Taylor" "Anthony" "DJ")
+   )
+#+END_SRC
+#+RESULTS:
+: [Olivia Liam Ryan Claudia Carolyn Scott Ellycia Steve Taylor Anthony DJ]
+*** 
