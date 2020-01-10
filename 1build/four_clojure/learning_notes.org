@@ -197,8 +197,9 @@
 * Learn Clojure: Sequential Collections Notes
 ** 4 collection types: vectors, lists, sets, and maps.
 *** Vectors and lists are ordered
-** Vectors: Ordered, Mutable
+** Vectors: Ordered, Immutable
 *** [1 2 3]
+*** Changing a vector creates a new instance--the original variable will remain unchanged.
 *** Use "get" to retrieve an element by index
 #+BEGIN_SRC clojure :results output
   (println
@@ -232,4 +233,45 @@
 #+END_SRC
 #+RESULTS:
 : [Olivia Liam Ryan Claudia Carolyn Scott Ellycia Steve Taylor Anthony DJ]
-*** 
+*** Immutability (v remains unchanged after conj)
+#+BEGIN_SRC clojure :results output
+  (def v [1 2 3])
+  (conj v 4 5 6)
+  (println v)
+#+END_SRC
+#+RESULTS:
+: [1 2 3]
+** Lists: Ordered, Immutable
+*** Sequential (ordered) linked lists that add new elements at the head (instead of the tail like vectors).
+*** Constructing
+**** Because lists are evaluating by invoking the first element as a function, must be quoted
+#+BEGIN_SRC clojure :results output
+  (def rando '(11 "happy" :baby 14))
+  (println (first rando))
+  (println (rest rando))
+#+END_SRC
+#+RESULTS:
+: 11
+: (happy :baby 14)
+*** Conj adds items at the front
+#+BEGIN_SRC clojure :results output
+  (def rando '(11 "happy" :baby 14))
+  (println
+   (conj rando :dharma)
+   )
+#+END_SRC
+#+RESULTS:
+: (:dharma 11 happy :baby 14)
+*** Peek and pop
+#+BEGIN_SRC clojure :results output
+  (def rando '(11 "happy" :baby 14))
+  (println (peek rando))
+  (println (pop rando))
+  (println (conj rando :dharma))
+  (println rando)
+#+END_SRC
+#+RESULTS:
+: 11
+: (happy :baby 14)
+: (:dharma 11 happy :baby 14)
+: (11 happy :baby 14)
