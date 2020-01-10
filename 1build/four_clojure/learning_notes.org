@@ -275,12 +275,162 @@
 : (happy :baby 14)
 : (:dharma 11 happy :baby 14)
 : (11 happy :baby 14)
-** Sets: Unordered, Hashed, Mutable
+** Sets: Unordered, Hashed, No duplicates
+*** Sets created with hashtag and brackets
 #+BEGIN_SRC clojure :results output
   (def peeps #{"Olivia", "Robert", "Allan"})
   (println peeps)
 #+END_SRC
 #+RESULTS:
 : #{Allan Robert Olivia}
-** Maps
+*** Disj (disjoin--removes elements)
+#+BEGIN_SRC clojure :results output
+  (def peeps #{"Olivia", "Robert", "Allan"})
+  (println (disj peeps "Robert" "Allan"))
+#+END_SRC
+#+RESULTS:
+: #{Olivia}
+*** Contains?
+#+BEGIN_SRC clojure :results output
+  (def peeps #{"Olivia", "Robert", "Allan"})
+  (println (contains? peeps "Robert"))
+#+END_SRC
+#+RESULTS:
+: true
+*** Into (putting collections together)
+#+BEGIN_SRC clojure :results output
+  (def peeps #{"Olivia", "Robert", "Allan"})
+  (def fam #{"Ellycia" "Steve" "Taylor"})
+  (println (into peeps fam))
+#+END_SRC
+#+RESULTS:
+: #{Allan Robert Steve Olivia Ellycia Taylor}
 
+** Maps
+*** Same as a dictionary in python (keys to values)
+#+BEGIN_SRC clojure :results output
+  (def relationships {"Olivia" "Fiance"
+		      "Robert" "Roommate"
+		      "Allan" "Friend of Friend"})
+  (println relationships)
+#+END_SRC
+#+RESULTS:
+: {Olivia Fiance, Robert Roommate, Allan Friend of Friend}
+*** Adding new values
+#+BEGIN_SRC clojure :results output
+  (def relationships {"Olivia" "Fiance"
+		      "Robert" "Roommate"
+		      "Allan" "Friend of Friend"})
+  (println (assoc relationships "Hogen" "Teacher"))
+#+END_SRC
+#+RESULTS:
+: {Olivia Fiance, Robert Roommate, Allan Friend of Friend, Hogen Teacher}
+*** Dissoc to removes
+*** Getting a key (can use get, or the map as a function)
+#+BEGIN_SRC clojure :results output
+  (def relationships {"Olivia" "Fiance"
+		      "Robert" "Roommate"
+		      "Allan" "Friend of Friend"})
+  (println (relationships "Olivia"))
+#+END_SRC
+#+RESULTS:
+: Fiance
+*** Getting a key and specifying a default if not found
+#+BEGIN_SRC clojure :results output
+  (def relationships {"Olivia" "Fiance"
+		      "Robert" "Roommate"
+		      "Allan" "Friend of Friend"})
+  (println (relationships "Hogen" 0))
+#+END_SRC
+#+RESULTS:
+: 0
+*** Contains? like sets
+*** Find
+#+BEGIN_SRC clojure :results output
+  (def relationships {"Olivia" "Fiance"
+		      "Robert" "Roommate"
+		      "Allan" "Friend of Friend"})
+  (println (find relationships "Olivia"))
+#+END_SRC
+#+RESULTS:
+: [Olivia Fiance]
+*** Keys or Vals to get keys and vals
+*** Zipmap to put two sets together (not ordered), as keys and maps respectively
+#+BEGIN_SRC clojure :results output
+  (def peeps #{"Olivia" "Robert" "Allan"})
+  (def titles #{"Fiance" "Roommate" "Friend of friend"})
+  (def relationships (zipmap peeps titles))
+  (println relationships)
+#+END_SRC
+#+RESULTS:
+: {Allan Fiance, Robert Roommate, Olivia Friend of friend}
+*** Merge to combine any number of maps
+**** If maps contain the same key, the rightmost wins.
+**** Can use merge-with to apply a function when there is a conflict.
+*** Sorted maps
+#+BEGIN_SRC clojure :results output
+  (def peeps #{"Olivia" "Robert" "Allan"})
+  (def titles #{"Fiance" "Roommate" "Friend of friend"})
+  (def relationships (zipmap peeps titles))
+  (println relationships)
+#+END_SRC
+#+RESULTS:
+: {Allan Fiance, Robert Roommate, Olivia Friend of friend}
+*** Sorted-map like sorted-sets. Default sorting function is compare.
+*** Domain information
+#+BEGIN_SRC clojure :results output
+  (def person
+    {:first-name "Olivia"
+     :last-name "Echols"
+     :age 99
+     :occupation "Designer"})
+  (println (person :occupation))
+  (println (:occupation person))
+#+END_SRC
+#+RESULTS:
+: Designer
+: Designer
+*** Updating with assoc (and remove with dissoc)
+#+BEGIN_SRC clojure :results output
+  (def person
+    {:first-name "Olivia"
+     :last-name "Echols"
+     :age 99
+     :occupation "Designer"})
+  (println (assoc person :occupation "Senior Designer"))
+#+END_SRC
+#+RESULTS:
+: {:first-name Olivia, :last-name Echols, :age 99, :occupation Senior Designer}
+*** Nested entities
+#+BEGIN_SRC clojure :results output
+  (def person
+    {:first-name "Olivia"
+     :last-name "Echols"
+     :address {:street "123 Kickass Ln"
+	       :city "Hipster Town"
+	       :state "Orygun"}
+     :age 99
+     :occupation "Designer"})
+  (println (assoc person :occupation "Senior Designer"))
+#+END_SRC
+#+RESULTS:
+: {:first-name Olivia, :last-name Echols, :address {:street 123 Kickass Ln, :city Hipster Town, :state Orygun}, :age 99, :occupation Senior Designer}
+*** Records
+#+BEGIN_SRC clojure :results output
+  ;; Define a record structure
+  (defrecord Person [first-name last-name age occupation])
+
+  ;; Positional constructor - generated
+  (def kelly (->Person "Kelly" "Keen" 32 "Programmer"))
+
+  ;; Map constructor - generated
+  (def kelly (map->Person
+	       {:first-name "Kelly"
+		:last-name "Keen"
+		:age 32
+		:occupation "Programmer"}))
+  (println kelly)
+#+END_SRC
+
+#+RESULTS:
+: #four_clojure.core.Person{:first-name Kelly, :last-name Keen, :age 32, :occupation Programmer}
