@@ -276,4 +276,11 @@
 : (:dharma 11 happy :baby 14)
 : (11 happy :baby 14)
 ** Sets: Unordered, Hashed, Mutable
+#+BEGIN_SRC clojure :results output
+  (def peeps #{"Olivia", "Robert", "Allan"})
+  (println peeps)
+#+END_SRC
+#+RESULTS:
+: #{Allan Robert Olivia}
+** Maps
 
