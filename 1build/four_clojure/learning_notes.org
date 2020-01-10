@@ -142,5 +142,56 @@
 : Hello.
 ** 2) Redefine greet using def, first with the fn special form and then with the #() reader macro.
 #+BEGIN_SRC clojure :results output
-
+  (def greet (fn [] (println "Hello.")))
+  (greet)
 #+END_SRC
+#+RESULTS:
+: Hello.
+** 3) Define a function greeting which:
+*** Given no arguments, returns "Hello, World!"
+*** Given one argument x, returns "Hello, x!"
+*** Given two arguments x and y, returns "x, y!"
+#+BEGIN_SRC clojure :results output
+  (defn greet
+    ([] (println "Hello, World!"))
+    ([x] (println "Hello, " (str x "!")))
+    ([x y] (println (str x ", " y "!")))
+    )
+  (greet "Liam")
+#+END_SRC
+
+#+RESULTS:
+: Hello,  Liam!
+** 4) Define a function do-nothing which takes a single argument x and returns it, unchanged.
+#+BEGIN_SRC clojure :results output
+  (defn do-nothing [x] x)
+  (println (do-nothing 2))
+#+END_SRC
+#+RESULTS:
+: 2
+** 5) Define a function always-thing which takes any number of arguments, ignores all of them, and returns the number 100.
+#+BEGIN_SRC clojure :results output
+  (defn always-thing [& x] 100)
+  (println (always-thing))
+#+END_SRC
+#+RESULTS:
+: 100
+** 6) Define a function make-thingy which takes a single argument x. It should return another function, which takes any number of arguments and always returns x.
+#+BEGIN_SRC clojure :results output
+  (defn make-thingy [x] (fn [& y] x))
+  (println (make-thingy 55))
+#+END_SRC
+#+RESULTS:
+: #function[four-clojure.core/make-thingy/fn--7992]
+** 7) Define a function triplicate which takes another function and calls it three times, without any arguments.
+#+BEGIN_SRC clojure :results output
+(defn triplicate [f] (f) (f) (f))
+#+END_SRC
+** 8) Define a function opposite which takes a single argument f. It should return another function which takes any number of arguments, applies f on them, and then calls not on the result. The not function in Clojure does logical negation.
+#+BEGIN_SRC clojure :results output
+  (defn opposite [f]
+    (fn [& args] (not (apply f args))))
+#+END_SRC
+#+RESULTS:
+
+* Learn Clojure: Sequential Collections Notes
