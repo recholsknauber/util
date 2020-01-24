@@ -435,7 +435,7 @@
 #+RESULTS:
 : #four_clojure.core.Person{:first-name Kelly, :last-name Keen, :age 32, :occupation Programmer}
 * 4Clojure
-** Various problems
+** Basic problems
 #+BEGIN_SRC clojure :results output
   (println ((fn [x] (str "Hello, " x "!")) "Olivia"))
 #+END_SRC
@@ -473,15 +473,28 @@
 
 *** Recur .
 #+BEGIN_SRC clojure :results output
-  ;; (= #_blank
-  ;;   (loop [x 5
-  ;;          result []]
-  ;;     (if (> x 0)
-  ;;       (recur (dec x) (conj result (+ 2 x)))
-  ;;       result)))
+  (println (doc loop))
   (loop [x 5
 	 result []]
     (if (> x 0)
       (recur (dec x) (conj result (+ 2 x)))
       result))
 #+END_SRC
+
+#+RESULTS:
+#+begin_example
+-------------------------
+clojure.core/loop
+  (loop [bindings*] exprs*)
+([bindings & body])
+Special Form
+  Evaluates the exprs in a lexical context in which the symbols in
+  the binding-forms are bound to their respective init-exprs or parts
+  therein. Acts as a recur target.
+
+  Please see http://clojure.org/special_forms#loop
+  Evaluates the exprs in a lexical context in which the symbols in
+  the binding-forms are bound to their respective init-exprs or parts
+  therein. Acts as a recur target.
+nil
+#+end_example
