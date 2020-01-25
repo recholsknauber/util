@@ -237,7 +237,7 @@
 #+BEGIN_SRC clojure :results output
   (def v [1 2 3])
   (conj v 4 5 6)
-  (println v)
+  (println (nth v 1))
 #+END_SRC
 #+RESULTS:
 : [1 2 3]
