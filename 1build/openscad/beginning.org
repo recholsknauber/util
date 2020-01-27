@@ -1,0 +1,20 @@
+* Testing testing
+#+BEGIN_SRC clojure :results output
+  (ns scad-demo.core
+    (:use [scad-clj.scad])
+    (:use [scad-clj.model]))
+
+  (def primitives
+    (union
+     (cube 100 100 100)
+     (sphere 110)
+     (cylinder 10 150)))
+
+  (spit "post-demo.scad"
+	(write-scad primitives))
+   
+#+END_SRC
+
+#+RESULTS:
+: WARNING: import already refers to: #'clojure.core/import in namespace: scad-demo.core, being replaced by: #'scad-clj.model/import
+: WARNING: use already refers to: #'clojure.core/use in namespace: scad-demo.core, being replaced by: #'scad-clj.model/use
