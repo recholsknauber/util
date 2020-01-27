@@ -8,12 +8,11 @@
     (union
      (cube 100 100 100)
      (sphere 110)
-     (cylinder 10 150)
-     ))
+     (cylinder 10 150)))
 
   (spit "post-demo.scad"
 	(write-scad primitives))
-
+   
 #+END_SRC
 
 #+RESULTS:

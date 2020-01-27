@@ -1,5 +1,5 @@
 /*
- Beginning with the most basic node.js server and building from there.
+Most basic node.js server.
 */
 
 const http = require('http');
