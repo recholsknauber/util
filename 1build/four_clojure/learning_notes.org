@@ -511,3 +511,14 @@
 : true
 : true
 : true
+
+*** For
+#+BEGIN_SRC clojure :results output
+  (for [x (range 40)
+        :when (= 1 (rem x 4))]
+    x)
+  (for [x (iterate #(+ 4 %) 0)
+        :let [z (inc x)]
+        :while (< z 40)]
+    z)
+#+END_SRC
