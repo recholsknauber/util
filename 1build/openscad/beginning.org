@@ -6,13 +6,23 @@
 
   (def primitives
     (union
-     (cube 100 100 100)
-     (sphere 110)
+     (->> (cube 100 100 100)
+          (translate [150 0 0]))
+     (->> (cube 100 100 75)
+          (translate [250 0 0]))
+     (->> (cube 100 100 50)
+          (translate [350 0 0]))
+     (->> (cube 100 100 25)
+          (translate [450 0 0]))
+     (->> (cube 100 100 10)
+          (translate [550 0 0]))
+     (->> (sphere 110)
+          (translate [-150 0 0]))
      (cylinder 10 150)
      ))
 
   (spit "post-demo.scad"
-	(write-scad primitives))
+        (write-scad primitives))
 
 #+END_SRC
 
