@@ -522,3 +522,10 @@
         :while (< z 40)]
     z)
 #+END_SRC
+
+*** Truth
+#+BEGIN_SRC clojure :results output
+  (if-not false 1 0)
+  (if [] 1 0)
+  (if [0] 1 0)
+#+END_SRC
