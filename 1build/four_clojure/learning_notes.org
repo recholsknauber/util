@@ -529,3 +529,21 @@
   (if [] 1 0)
   (if [0] 1 0)
 #+END_SRC
+
+*** Default values
+#+BEGIN_SRC clojure :results output
+  (defn def-val-map
+    [x y]
+    (zipmap y (repeat x))
+    )
+  (def-val-map 2 #{:Ryan :Olivia :Robert})
+#+END_SRC
+
+*** Some: returns the first logical true value.
+#+BEGIN_SRC clojure :results output
+  (println (some #{2 7 6} [5 6 7 8]))
+
+  (println #(even? %) [5 6 7 8])
+  (println #(when (even? %) %) [5 6 7 8])
+  (println (some #(when (even? %) %) [5 6 7 8]))
+#+END_SRC

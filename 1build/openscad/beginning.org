@@ -6,19 +6,19 @@
 
   (def primitives
     (union
-     (->> (cube 100 100 100)
-          (translate [150 0 0]))
+     (->> (cube 100 100 -500)
+          (translate [150 0 500]))
      (->> (cube 100 100 75)
           (translate [250 0 0]))
      (->> (cube 100 100 50)
-          (translate [350 0 0]))
-     (->> (cube 100 100 25)
+          (translate [350 0 800]))
+     (->> (cube 100 100 506)
           (translate [450 0 0]))
      (->> (cube 100 100 10)
           (translate [550 0 0]))
-     (->> (sphere 110)
+     (->> (sphere 600)
           (translate [-150 0 0]))
-     (cylinder 10 150)
+     (cylinder 510 550)
      ))
 
   (spit "post-demo.scad"
