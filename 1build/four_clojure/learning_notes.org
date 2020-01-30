@@ -547,3 +547,21 @@
   (println #(when (even? %) %) [5 6 7 8])
   (println (some #(when (even? %) %) [5 6 7 8]))
 #+END_SRC
+
+*** Last element in a sequence (without using last).
+#+BEGIN_SRC clojure :results output
+  (defn my-last
+    [x]
+    (nth x (- (count x) 1)))
+
+  (my-last [2 3 4 2 1])
+#+END_SRC
+
+*** Return the nth element (without nth).
+#+BEGIN_SRC clojure :results output
+  (defn my-nth
+    [x y]
+    (last (take (+ y 1) x)))
+
+  (my-nth '(4 5 6 7 8) 3)
+#+END_SRC
