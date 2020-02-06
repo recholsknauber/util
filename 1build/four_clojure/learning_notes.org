@@ -565,3 +565,28 @@
 
   (my-nth '(4 5 6 7 8) 3)
 #+END_SRC
+
+*** Count (without count).
+#+BEGIN_SRC clojure :results output
+  (defn count-seq
+    [coll]
+    (loop [x coll c 0]
+      (let [nc
+            (if (some? (first x))
+              (+ c 1)
+              c)]
+        (do
+          (println nc)
+          (if (nil? (first x))
+          nc
+          (recur (rest x) nc))))))
+
+  (count-seq '[1 2 3 "hello"])
+#+END_SRC
+
+*** Reverse a sequence without reverse or rseq.
+#+BEGIN_SRC clojure :results output
+  (defn reverse-seq
+    [coll]
+    (for [x coll]
+#+END_SRC
