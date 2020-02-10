@@ -590,6 +590,7 @@
     [coll]
     (let [ncoll []]
       (for [x coll]
+        
        
 
   (reverse-seq '[1 2 3 "howdy"])
