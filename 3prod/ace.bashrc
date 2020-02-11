@@ -6,7 +6,10 @@ alias gitl="git pull origin master --allow-unrelated-histories;"
 alias gits="git add .; git commit -m '<(-.-<)'; git push origin master;"
 alias ej="cd kar; git pull origin master; emacs journal.org"
 alias gitsku="cp ~/.emacs ~/util/ace.emacs; cp ~/.bashrc ~/util/ace.bashrc; cd ~/kar; git add .; git commit -m '<(-.-<)'; git push origin master; cd ~/util; git add .; git commit -m '<(-.-<)'; git push origin master; cd ~;"
-alias aws="ssh -i ~/data/'UbuntuServer.pem' ubuntu@ec2-3-15-156-116.us-east-2.compute.amazonaws.com"
+
+export JAVA_HOME=/usr/java/jre1.8.0_241/bin/java
+export PATH=$PATH:/usr/java/jre1.8.0_241/bin
+
 # If not running interactively, don't do anything
 case $- in
     *i*) ;;
@@ -48,7 +51,7 @@ esac
 # uncomment for a colored prompt, if the terminal has the capability; turned
 # off by default to not distract the user: the focus in a terminal window
 # should be on the output of commands, not on the prompt
-#force_color_prompt=yes
+force_color_prompt=yes
 
 if [ -n "$force_color_prompt" ]; then
     if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
