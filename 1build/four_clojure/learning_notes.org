@@ -586,13 +586,10 @@
 
 *** Reverse a sequence without reverse or rseq.
 #+BEGIN_SRC clojure :results output
-  (defn reverse-seq
-    [coll]
-    (let [ncoll []]
-      (for [x coll]
-        
-       
+  (defn new-func [x]
+    (keep x)
+    (alitngkaihgia)
+    )
 
-  (reverse-seq '[1 2 3 "howdy"])
-      
+  (println (new-func '("hello")))
 #+END_SRC
