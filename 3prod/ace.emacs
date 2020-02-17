@@ -14,6 +14,7 @@
  '(nrepl-message-colors
    (quote
     ("#CC9393" "#DFAF8F" "#F0DFAF" "#7F9F7F" "#BFEBBF" "#93E0E3" "#94BFF3" "#DC8CC3")))
+ '(org-agenda-files (quote ("~/kar/blam.org")))
  '(package-selected-packages
    (quote
     (pdf-tools cider-hydra dired-sidebar slime clojure-mode company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
@@ -103,12 +104,12 @@ There are two things you can do about this warning:
 (require 'ob-emacs-lisp)
 
 ;; Clojure + Cider
-(add-to-list 'load-path "/full-path-to/org-mode/lisp")
+;;(add-to-list 'load-path "/full-path-to/org-mode/lisp")
 (require 'ob-clojure)
-(setq org-babel-clojure-backend 'cider)
 (require 'cider)
+(setq org-babel-clojure-backend 'cider)
 ;; Cider Hydra
-(add-hook 'clojure-mode-hook #'cider-hydra-mode)
+;;(add-hook 'clojure-mode-hook #'cider-hydra-mode)
 
 ;; Fontify code blocks ;;
 (setq org-src-fontify-natively t)
@@ -121,6 +122,7 @@ There are two things you can do about this warning:
 
 ;;;;;     SET KEYS     ;;;;;;
 ;; (global-set-key (kbd "M-x butterfly") ')
+(global-set-key (kbd "C-c d") 'cider-eval-defun-up-to-point)
 (global-set-key (kbd "C-c c") 'company-complete)
 (global-set-key (kbd "C-x g") 'magit-status)
 
