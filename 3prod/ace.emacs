@@ -17,7 +17,7 @@
  '(org-agenda-files (quote ("~/kar/blam.org")))
  '(package-selected-packages
    (quote
-    (pdf-tools cider-hydra dired-sidebar slime clojure-mode company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
+    (org pdf-tools cider-hydra dired-sidebar slime clojure-mode company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -63,9 +63,8 @@ which is unsafe because it allows man-in-the-middle attacks.
 There are two things you can do about this warning:
 1. Install an Emacs version that does support SSL and be safe.
 2. Remove this warning from your init file so you won't see it again."))
-  ;; Comment/uncomment these two lines to enable/disable MELPA and MELPA Stable as desired
   (add-to-list 'package-archives (cons "melpa" (concat proto "://melpa.org/packages/")) t)
-  ;;(add-to-list 'package-archives (cons "melpa-stable" (concat proto "://stable.melpa.org/packages/")) t)
+  (add-to-list 'package-archives (cons "org" (concat proto "://orgmode.org/elpa/")) t)
   (when (< emacs-major-version 24)
     ;; For important compatibility libraries like cl-lib
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
@@ -101,13 +100,13 @@ There are two things you can do about this warning:
 ;; Org Languages
 (require 'org)
 (require 'ob-python)
+(require 'ob-clojure)
 (require 'ob-emacs-lisp)
 
 ;; Clojure + Cider
 ;;(add-to-list 'load-path "/full-path-to/org-mode/lisp")
-(require 'ob-clojure)
-(require 'cider)
 (setq org-babel-clojure-backend 'cider)
+(require 'cider)
 ;; Cider Hydra
 ;;(add-hook 'clojure-mode-hook #'cider-hydra-mode)
 
