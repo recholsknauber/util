@@ -121,8 +121,12 @@ There are two things you can do about this warning:
 
 ;;;;;     SET KEYS     ;;;;;;
 ;; (global-set-key (kbd "M-x butterfly") ')
+(global-set-key (kbd "C-c l") 'org-store-link)
+(global-set-key (kbd "C-c a") 'org-agenda)
+(global-set-key (kbd "C-c c") 'org-capture)
+
 (global-set-key (kbd "C-c d") 'cider-eval-defun-up-to-point)
-(global-set-key (kbd "C-c c") 'company-complete)
+(global-set-key (kbd "C-c x") 'company-complete)
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;;;;; LANGUAGE ENVIRONMENT FOR JAPANESE/CHINESE ;;;;;
