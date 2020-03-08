@@ -523,6 +523,8 @@
     z)
 #+END_SRC
 
+#+RESULTS:
+
 *** Truth
 #+BEGIN_SRC clojure :results output
   (if-not false 1 0)
@@ -547,6 +549,12 @@
   (println #(when (even? %) %) [5 6 7 8])
   (println (some #(when (even? %) %) [5 6 7 8]))
 #+END_SRC
+
+#+RESULTS:
+: 6
+: #function[four-clojure.core/eval5788/fn--5789] [5 6 7 8]
+: #function[four-clojure.core/eval5793/fn--5794] [5 6 7 8]
+: 6
 
 *** Last element in a sequence (without using last).
 #+BEGIN_SRC clojure :results output
