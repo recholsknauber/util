@@ -20,7 +20,7 @@
 	.section .data
 
 	.section .text
-	.glob _start
+	.globl _start
 _start:
 	movl $1, %eax	# this is the linux kernel command
 			# number (system call) for exiting
