@@ -126,7 +126,14 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 			 (air-org-skip-subtree-if-habit)
 	                 (org-agenda-skip-if nil '(scheduled deadline)))))))
 		  )))
- 
+
+;; Refiling
+(setq org-refile-targets '(("~/kar/ka.org" :maxlevel . 2)
+			   ("~/kar/zdone.org" :maxlevel . 2)
+			   ("~/kar/zsomeday.org" :maxlevel . 3)))
+
+(setq org-archive-location '"~/kar/zdone.org::datetree/* Finished Tasks")
+
 ;; Speed Keys
 (setq org-use-speed-commands t)
 
