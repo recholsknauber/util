@@ -138,6 +138,9 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (setq org-use-speed-commands t)
 
 ;;; SRC code blocks ;;;
+
+;; Templates
+(require 'org-tempo)
 ;; Org Languages
 (require 'org)
 (require 'ob-python)
