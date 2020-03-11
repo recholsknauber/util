@@ -148,6 +148,10 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (require 'ob-emacs-lisp)
 
 ;; Clojure + Cider
+
+;; Enable offline
+(setq cider-lein-global-options "-o")
+
 ;;(add-to-list 'load-path "/full-path-to/org-mode/lisp")
 (setq org-babel-clojure-backend 'cider)
 (require 'cider)
