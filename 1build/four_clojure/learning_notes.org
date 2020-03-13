@@ -114,14 +114,15 @@
 *** At least the last argument MUST be a sequence.
 #+BEGIN_SRC clojure :results output
   (defn love [thing & magnitude]
-      (println (str "I love " thing " " magnitude ".")))
-  (def morethwords '("more than words " "can " "say"))
+      (str "I love " thing " " (apply str magnitude) "."))
+  (def morethwords '("more than words " "can say"))
   (println (apply love "Olivia" morethwords))
 #+END_SRC
+
 #+RESULTS:
-: I love Olivia ("more than words " "can " "say").
-: nil
-** Lets
+: I love Olivia more than words can say.
+
+** Let
 *** Binding symbols in a local scope (taking precedence over the outer context).
 #+BEGIN_SRC clojure :results output
   (println
