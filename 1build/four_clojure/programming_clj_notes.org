@@ -1,0 +1,15 @@
+* Chapter 2: Vars, Bindings, and Namespaces
+** Function that creates a function
+   #+begin_src clojure
+     (defn make-row-delimiter [delimiter]
+       (fn [row] (clojure.string/replace row " " delimiter)))
+
+     (def comma-delim (make-row-delimiter ","))
+     (comma-delim "FIRST_NAME LAST_NAME BIRTHDAY ADDRESS")
+
+   #+end_src
+
+   #+RESULTS:
+   : #'four-clojure.core/make-row-delimiter#'four-clojure.core/comma-delim"FIRST_NAME,LAST_NAME,BIRTHDAY,ADDRESS"
+
+** 
