@@ -320,7 +320,7 @@
 
     #+RESULTS:
     : (1 1 2)
-** Maximum value (without max or max-key.
+** Maximum value (without max or max-key).
    #+begin_src clojure :results output
      (defn my-max [& coll]
        (last (sort (seq coll))))
@@ -348,3 +348,59 @@
 
     #+RESULTS:
     : HWDYPDNH
+** Duplicate ever item in a sequence.
+   #+begin_src clojure :results output
+     (defn duplicate [coll]
+       (interleave coll coll))
+
+     (println (duplicate [1 3 5 7 9]))
+   #+end_src
+
+   #+RESULTS:
+   : (1 1 3 3 5 5 7 7 9 9)
+*** Other answer
+    #+begin_src clojure :results output
+      (println
+       (mapcat #(list % %) [1 3 5 7 9]))
+    #+end_src
+
+    #+RESULTS:
+    : (1 1 3 3 5 5 7 7 9 9)
+** Range (without range).
+   #+begin_src clojure :results output
+     (defn my-range [mn mx]
+       (take (- mx mn) (iterate inc mn)))
+
+     (println (my-range 36 45))
+   #+end_src
+
+   #+RESULTS:
+   : (36 37 38 39 40 41 42 43 44)
+*** Other answer
+    #+begin_src clojure :results output
+      (println
+       (#(take (- %2 %1) (iterate inc %1)) 36 45))
+    #+end_src
+
+    #+RESULTS:
+    : (36 37 38 39 40 41 42 43 44)
+** Compress: remove consecutive duplicates
+   #+begin_src clojure :results output
+     (defn compress [coll]
+       (if (string? coll)
+	 (clojure.string/join (dedupe coll))
+	 (dedupe coll)))
+
+     (println (compress "Hoooowwwdy podnah!!"))
+   #+end_src
+
+   #+RESULTS:
+   : Howdy podnah!
+*** Other answer
+    #+begin_src clojure :results output
+      (println
+       (#(map first (partition-by identity %)) "Hoooowwwdy podnah!!"))
+    #+end_src
+
+    #+RESULTS:
+    : (H o w d y   p o d n a h !)
