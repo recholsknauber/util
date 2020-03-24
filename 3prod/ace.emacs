@@ -150,7 +150,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; Clojure + Cider
 
 ;; Enable offline
-(setq cider-lein-global-options "-o")
+;;(setq cider-lein-global-options "-o")
 
 ;;(add-to-list 'load-path "/full-path-to/org-mode/lisp")
 (setq org-babel-clojure-backend 'cider)

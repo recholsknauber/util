@@ -1,18 +1,18 @@
-# ~/.bashrc
+# ~/.bashrc: executed by bash(1) for non-login shells.
+# see /usr/share/doc/bash/examples/startup-files (in the package bash-doc)
+# for examples
 
 alias gitl="git pull origin master --allow-unrelated-histories;"
 alias gits="git add .; git commit -m '<(-.-<)'; git push origin master;"
 alias ej="cd kar; git pull origin master; emacs journal.org"
-<<<<<<< HEAD
 alias gitsku="cp ~/.emacs ~/util/ace.emacs; cp ~/.bashrc ~/util/ace.bashrc; cd ~/kar; git add .; git commit -m '<(-.-<)'; git push origin master; cd ~/util; git add .; git commit -m '<(-.-<)'; git push origin master; cd ~;"
 
+# Java
 export JAVA_HOME=/usr/java/jre1.8.0_241/bin/java
 export PATH=$PATH:/usr/java/jre1.8.0_241/bin
-=======
 
-# paths
-export JAVA_CMD="/usr/java/jre1.8.0_241/bin/java"
->>>>>>> 3028802a4b45ed25441d3396eae217bd67913221
+# Browser for WSL
+export BROWSER="/mnt/c/Program Files/Mozilla Firefox/firefox.exe"
 
 # If not running interactively, don't do anything
 case $- in
@@ -127,3 +127,19 @@ if ! shopt -oq posix; then
     . /etc/bash_completion
   fi
 fi
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/recholsknauber/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/recholsknauber/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/recholsknauber/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/recholsknauber/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
