@@ -139,6 +139,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; SRC code blocks ;;;
 
+;; Setting src code edit window
+(setq org-src-window-setup 'current-window)
 ;; Templates
 (require 'org-tempo)
 ;; Org Languages
@@ -168,12 +170,14 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (beacon-mode 1)
 
 ;;;;;     SET KEYS     ;;;;;;
+
+;;; Global
 ;; (global-set-key (kbd "M-x butterfly") ')
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
-(global-set-key (kbd "C-c d") 'cider-eval-defun-up-to-point)
+(global-set-key (kbd "C-c r") 'cider-eval-region)
 (global-set-key (kbd "C-c x") 'company-complete)
 (global-set-key (kbd "C-x g") 'magit-status)
 
