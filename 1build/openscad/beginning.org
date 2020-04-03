@@ -7,25 +7,27 @@
   (def primitives
     (union
      (->> (cube 100 100 -500)
-          (translate [150 0 500]))
+	  (translate [150 0 500]))
      (->> (cube 100 100 75)
-          (translate [250 0 0]))
+	  (translate [250 0 0]))
      (->> (cube 100 100 50)
-          (translate [350 0 800]))
+	  (translate [350 0 800]))
      (->> (cube 100 100 506)
-          (translate [450 0 0]))
+	  (translate [450 0 0]))
      (->> (cube 100 100 10)
-          (translate [550 0 0]))
+	  (translate [550 0 0]))
      (->> (sphere 600)
-          (translate [-150 0 0]))
+	  (translate [-150 0 0]))
      (cylinder 510 550)
      ))
 
-  (spit "post-demo.scad"
-        (write-scad primitives))
+  (spit "/mnt/c/Users/ryank/Documents/shapes/post-demo.scad"
+	(write-scad primitives))
 
 #+END_SRC
 
 #+RESULTS:
+: WARNING: boolean? already refers to: #'clojure.core/boolean? in namespace: clojure.tools.analyzer.utils, being replaced by: #'clojure.tools.analyzer.utils/boolean?
+: WARNING: boolean? already refers to: #'clojure.core/boolean? in namespace: clojure.tools.analyzer, being replaced by: #'clojure.tools.analyzer.utils/boolean?
 : WARNING: import already refers to: #'clojure.core/import in namespace: scad-demo.core, being replaced by: #'scad-clj.model/import
 : WARNING: use already refers to: #'clojure.core/use in namespace: scad-demo.core, being replaced by: #'scad-clj.model/use
