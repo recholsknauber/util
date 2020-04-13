@@ -307,11 +307,11 @@
      (defn nth-fib [n]
        (take n (map first (iterate (fn [[a b]] (conj [b] (+ a b))) [1 1]))))
 
-     (println (nth-fib 3))
+     (println (nth-fib 10))
    #+end_src
 
    #+RESULTS:
-   : (1 1 2)
+   : (1 1 2 3 5 8 13 21 34 55)
 *** Other answer
     #+begin_src clojure :results output
       (println
