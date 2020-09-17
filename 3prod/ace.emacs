@@ -17,7 +17,7 @@
  '(org-agenda-files (quote ("~/kar/blam.org")))
  '(package-selected-packages
    (quote
-    (org pdf-tools cider-hydra dired-sidebar slime clojure-mode company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
+    (use-package cider beacon org pdf-tools cider-hydra dired-sidebar slime clojure-mode company-jedi irony all-the-icons company csv-mode solarized-theme magit js-comint xref-js2 js2-refactor js2-mode)))
  '(pdf-view-midnight-colors (quote ("#DCDCCC" . "#383838")))
  '(vc-annotate-background "#2B2B2B")
  '(vc-annotate-color-map
@@ -90,6 +90,8 @@ There are two things you can do about this warning:
 ;;;;;     ORG     ;;;;;
 
 ;; Agenda View
+(setq org-startup-folded t)
+(setq org-startup-indented '"indent")
 (setq org-agenda-files '("~/kar/"))
 
 (defun air-org-skip-subtree-if-priority (priority)
