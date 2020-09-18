@@ -175,7 +175,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
-(global-set-key (kbd "C-c r") 'cider-eval-region)
+(global-set-key (kbd "C-c r") 'eval-region)
 (global-set-key (kbd "C-c d") 'cider-debug-defun-at-point)
 (global-set-key (kbd "C-c x") 'company-complete)
 (global-set-key (kbd "C-x g") 'magit-status)
