@@ -70,6 +70,14 @@ There are two things you can do about this warning:
     (add-to-list 'package-archives (cons "gnu" (concat proto "://elpa.gnu.org/packages/")))))
 (package-initialize)
 
+;;;;; TURNING OFF LAME MENU, TOOL, AND SCROLL BARS ;;;;;
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
+;;;;; WINDOWS & SHELL ;;;;;
+(setq default-directory "/home/")
+
 
 ;; Company Mode for autocomplete
 (use-package company
