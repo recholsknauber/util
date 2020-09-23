@@ -71,6 +71,12 @@ There are two things you can do about this warning:
 (package-initialize)
 
 
+;;;;; DITCHING UI ;;;;;
+(if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
+(if (fboundp 'tool-bar-mode) (tool-bar-mode -1))
+(if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
+
+
 ;; Company Mode for autocomplete
 (use-package company
 	     :ensure t
