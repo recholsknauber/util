@@ -36,7 +36,7 @@ There are two things you can do about this warning:
 (package-initialize)
 
 ;; Set Default Directory on Windows
-(setq default-directory "../home/")
+(setq default-directory "/home/")
 
 ;; Ditching UI
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -149,10 +149,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;; Enable offline
 ;;(setq cider-lein-global-options "-o")
 ;; Set build to Lein
-(setq cider-default-cljs-repl 'figwheel-main)
-;; Cider Hydra
-(add-hook 'clojure-mode-hook #'cider-hydra-mode)
-
+;;(setq cider-default-cljs-repl 'figwheel-main)
 
 
 ;; Beacon cursor ;;
