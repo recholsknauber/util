@@ -6,7 +6,9 @@
  '(custom-enabled-themes '(zenburn))
  '(custom-safe-themes
    '("f2c35f8562f6a1e5b3f4c543d5ff8f24100fae1da29aeb1864bbc17758f52b70" default))
- '(inhibit-startup-screen t))
+ '(inhibit-startup-screen t)
+ '(package-selected-packages
+   '(powershell org dired-sidebar company zenburn-theme use-package magit cider beacon)))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
@@ -37,6 +39,9 @@ There are two things you can do about this warning:
 
 ;; Set Default Directory on Windows
 (setq default-directory "/home/")
+
+;; Turn off backup files
+(setq make-backup-files nil)
 
 ;; Ditching UI
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
@@ -146,10 +151,12 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 ;;; Clojure + Cider
 (require 'cider)
 
+;; Do not inject deps
+(setq cider-inject-dependencies-at-jack-in nil)
 ;; Enable offline
 ;;(setq cider-lein-global-options "-o")
-;; Set build to Lein
-;;(setq cider-default-cljs-repl 'figwheel-main)
+;; Set build to shadow-cljs
+;;(setq cider-default-cljs-repl 'shadow)
 
 
 ;; Beacon cursor ;;
