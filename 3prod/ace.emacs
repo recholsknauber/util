@@ -40,8 +40,8 @@ There are two things you can do about this warning:
 ;; Set Default Directory on Windows
 (setq default-directory "/home/")
 
-;; Turn off backup files
-(setq make-backup-files nil)
+;; Backup files to one folder
+(setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 
 ;; Ditching UI
 (if (fboundp 'scroll-bar-mode) (scroll-bar-mode -1))
