@@ -1,6 +1,0 @@
-
-#+NAME: calc_clojure
-#+BEGIN_SRC clojure
-  (defn greet [name] (str "Hello, " name) )
-#+END_SRC
-#+RESULTS: calc_elisp
