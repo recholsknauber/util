@@ -37,7 +37,7 @@
  '(nrepl-message-colors
    '("#9d0006" "#af3a03" "#b57614" "#747400" "#c6c148" "#004858" "#689d6a" "#d3869b" "#8f3f71"))
  '(package-selected-packages
-   '(emms gruvbox-theme solarized-theme sunburn-theme powershell org dired-sidebar company zenburn-theme use-package magit cider beacon))
+   '(helm helpful paredit elisp-demos emms gruvbox-theme solarized-theme sunburn-theme powershell org dired-sidebar company zenburn-theme use-package magit cider beacon))
  '(pos-tip-background-color "#ebdbb2")
  '(pos-tip-foreground-color "#665c54")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#98971a" "#ebdbb2" 0.2))
@@ -113,6 +113,44 @@ There are two things you can do about this warning:
 ;; Setting Font size
 (set-face-attribute 'default nil :height 110)
 
+;;; Helpful ;;;
+;; Note that the built-in `describe-function' includes both functions
+;; and macros. `helpful-function' is functions only, so we provide
+;; `helpful-callable' as a drop-in replacement.
+(global-set-key (kbd "C-h f") #'helpful-callable)
+
+(global-set-key (kbd "C-h v") #'helpful-variable)
+(global-set-key (kbd "C-h k") #'helpful-key)
+
+;; Lookup the current symbol at point. C-c C-d is a common keybinding
+;; for this in lisp modes.
+(global-set-key (kbd "C-c C-d") #'helpful-at-point)
+
+;; Look up *F*unctions (excludes macros).
+;;
+;; By default, C-h F is bound to `Info-goto-emacs-command-node'. Helpful
+;; already links to the manual, if a function is referenced there.
+(global-set-key (kbd "C-h F") #'helpful-function)
+
+;; Look up *C*ommands.
+;;
+;; By default, C-h C is bound to describe `describe-coding-system'. I
+;; don't find this very useful, but it's frequently useful to only
+;; look at interactive functions.
+(global-set-key (kbd "C-h C") #'helpful-command)
+
+;; Add Elisp demos
+(advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
+
+
+;;;;;     EMACS Lisp     ;;;;;
+(autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
+(add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
+(add-hook 'eval-expression-minibuffer-setup-hook #'enable-paredit-mode)
+(add-hook 'ielm-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-mode-hook             #'enable-paredit-mode)
+(add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
+(add-hook 'scheme-mode-hook           #'enable-paredit-mode)
 
 ;; EMMS
 ;; (require 'emms-setup)
@@ -240,6 +278,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (global-set-key (kbd "C-c c") 'org-capture)
 
 (global-set-key (kbd "C-c r") 'cider-eval-region)
+(global-set-key (kbd "C-c C-d") #'helpful-at-point)
 (global-set-key (kbd "C-c d") 'cider-debug-defun-at-point)
 (global-set-key (kbd "C-c x") 'company-complete)
 (global-set-key (kbd "C-x g") 'magit-status)
