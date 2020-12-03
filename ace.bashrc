@@ -3,7 +3,7 @@
 # for examples
 
 alias gitl="git pull origin master --allow-unrelated-histories;"
-Alias gits="git add .; git commit -m '<(-.0<)'; git push origin master;"
+alias gits="git add .; git commit -m '<(-.0<)'; git push origin master;"
 alias ek="cd kar; git pull origin master; emacs ka.org"
 alias gitsku="cp ~/.emacs ~/util/ace.emacs; cp ~/.bashrc ~/util/ace.bashrc; cd ~/kar; git add .; git commit -m '<(-.0<)'; git push origin master; cd ~/util; git add .; git commit -m '<(-.0<)'; git push origin master; cd ~;"
 
