@@ -102,6 +102,9 @@ There are two things you can do about this warning:
 ;; Set Default Directory on Windows
 (setq default-directory "/home/")
 
+;; Set C Source Directory
+(setq source-directory "/home/.emacs.d/emacs-27.1")
+
 ;; Backup files to one folder
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 
