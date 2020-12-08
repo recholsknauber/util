@@ -102,6 +102,9 @@ There are two things you can do about this warning:
 ;; Set Default Directory on Windows
 (setq default-directory "/home/")
 
+;; Set C Source Directory
+(setq source-directory "/home/.emacs.d/emacs-27.1")
+
 ;; Backup files to one folder
 (setq backup-directory-alist '(("" . "~/.emacs.d/backup")))
 
@@ -285,3 +288,11 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;;;; LANGUAGE ENVIRONMENT FOR JAPANESE/CHINESE ;;;;;
 (set-language-environment "UTF-8")
+
+
+
+;;;;; MACROS ;;;;;
+(fset 'kar-start
+   (kmacro-lambda-form [?\C-x ?\C-f ?~ ?/ ?k ?a ?r tab ?k ?a ?. ?o ?r ?g return ?\C-x ?3 ?\C-x ?o ?\C-x ?\C-f ?j ?o ?u ?r ?n ?a ?l ?. ?o ?r ?g return S-tab S-tab S-tab ?\M-x ?v ?i ?s ?u tab return ?\C-x ?2 ?\C-x ?o ?\C-x ?\C-f ?s ?l ?u ?s ?h ?. ?o ?r ?g return tab ?n tab tab ?\M-x ?v ?i ?s ?u tab return ?\C-x ?o ?\M-x ?v ?i ?s ?u tab return ?\C-c ?\\ ?P ?R ?I ?O ?R ?I ?T ?Y ?= ?\" ?A ?\" return] 0 "%d"))
+
+(global-set-key "\C-x\C-k\C-s" 'kar-start)
