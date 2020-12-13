@@ -12,7 +12,7 @@
  '(cua-read-only-cursor-color "#98971a")
  '(custom-enabled-themes '(gruvbox-light-hard))
  '(custom-safe-themes
-   '("a06658a45f043cd95549d6845454ad1c1d6e24a99271676ae56157619952394a" "e1d09f1b2afc2fed6feb1d672be5ec6ae61f84e058cb757689edb669be926896" "123a8dabd1a0eff6e0c48a03dc6fb2c5e03ebc7062ba531543dfbce587e86f2a" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "ab3bf0dd6507d10dcf1b63769e7bfc180d8332266d3db27cc7b2e8323ff02ae4" "e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "f2c35f8562f6a1e5b3f4c543d5ff8f24100fae1da29aeb1864bbc17758f52b70" default))
+   '("4cf9ed30ea575fb0ca3cff6ef34b1b87192965245776afa9e9e20c17d115f3fb" "a06658a45f043cd95549d6845454ad1c1d6e24a99271676ae56157619952394a" "e1d09f1b2afc2fed6feb1d672be5ec6ae61f84e058cb757689edb669be926896" "123a8dabd1a0eff6e0c48a03dc6fb2c5e03ebc7062ba531543dfbce587e86f2a" "2809bcb77ad21312897b541134981282dc455ccd7c14d74cc333b6e549b824f3" "285d1bf306091644fb49993341e0ad8bafe57130d9981b680c1dbd974475c5c7" "00445e6f15d31e9afaa23ed0d765850e9cd5e929be5e8e63b114a3346236c44c" "c433c87bd4b64b8ba9890e8ed64597ea0f8eb0396f4c9a9e01bd20a04d15d358" "0fffa9669425ff140ff2ae8568c7719705ef33b7a927a0ba7c5e2ffcfac09b75" "13a8eaddb003fd0d561096e11e1a91b029d3c9d64554f8e897b2513dbf14b277" "51ec7bfa54adf5fff5d466248ea6431097f5a18224788d0bd7eb1257a4f7b773" "ab3bf0dd6507d10dcf1b63769e7bfc180d8332266d3db27cc7b2e8323ff02ae4" "e6df46d5085fde0ad56a46ef69ebb388193080cc9819e2d6024c9c6e27388ba9" "f2c35f8562f6a1e5b3f4c543d5ff8f24100fae1da29aeb1864bbc17758f52b70" default))
  '(fci-rule-color "#ebdbb2")
  '(highlight-changes-colors '("#d3869b" "#8f3f71"))
  '(highlight-symbol-colors
@@ -37,7 +37,7 @@
  '(nrepl-message-colors
    '("#9d0006" "#af3a03" "#b57614" "#747400" "#c6c148" "#004858" "#689d6a" "#d3869b" "#8f3f71"))
  '(package-selected-packages
-   '(helm helpful paredit elisp-demos emms gruvbox-theme solarized-theme sunburn-theme powershell org dired-sidebar company zenburn-theme use-package magit cider beacon))
+   '(rainbow-delimiters ejc-sql php-mode flycheck helm helpful paredit elisp-demos emms gruvbox-theme solarized-theme sunburn-theme powershell org dired-sidebar company zenburn-theme use-package magit cider beacon))
  '(pos-tip-background-color "#ebdbb2")
  '(pos-tip-foreground-color "#665c54")
  '(smartrep-mode-line-active-bg (solarized-color-blend "#98971a" "#ebdbb2" 0.2))
@@ -114,7 +114,13 @@ There are two things you can do about this warning:
 (if (fboundp 'menu-bar-mode) (menu-bar-mode -1))
 
 ;; Setting Font size
-(set-face-attribute 'default nil :height 110)
+(set-face-attribute 'default nil :height 100)
+
+;;; Helm
+(global-set-key (kbd "M-x") #'helm-M-x)
+(global-set-key (kbd "C-x r b") #'helm-filtered-bookmarks)
+(global-set-key (kbd "C-x C-f") #'helm-find-files)
+(helm-mode 1)
 
 ;;; Helpful ;;;
 ;; Note that the built-in `describe-function' includes both functions
@@ -146,6 +152,13 @@ There are two things you can do about this warning:
 (advice-add 'helpful-update :after #'elisp-demos-advice-helpful-update)
 
 
+
+;;; Projectile
+(projectile-mode +1)
+(define-key projectile-mode-map (kbd "C-c p") 'projectile-command-map)
+
+
+
 ;;;;;     EMACS Lisp     ;;;;;
 (autoload 'enable-paredit-mode "paredit" "Turn on pseudo-structural editing of Lisp code." t)
 (add-hook 'emacs-lisp-mode-hook       #'enable-paredit-mode)
@@ -154,6 +167,11 @@ There are two things you can do about this warning:
 (add-hook 'lisp-mode-hook             #'enable-paredit-mode)
 (add-hook 'lisp-interaction-mode-hook #'enable-paredit-mode)
 (add-hook 'scheme-mode-hook           #'enable-paredit-mode)
+(add-hook 'php-mode-hook           #'enable-paredit-mode)
+
+;;; Rainbow Delimiters
+(add-hook 'prog-mode-hook #'rainbow-delimiters-mode)
+(show-paren-mode 1)
 
 ;; EMMS
 ;; (require 'emms-setup)
@@ -258,6 +276,15 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (setq org-babel-clojure-backend 'cider)
 
 
+;;; PHP
+(defun my-php-mode-setup ()
+  "My PHP-mode hook."
+  (require 'flycheck-phpstan)
+  (flycheck-mode t))
+
+(add-hook 'php-mode-hook 'my-php-mode-setup)
+
+
 ;;; Clojure + Cider
 (require 'cider)
 
@@ -280,7 +307,16 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
 
-(global-set-key (kbd "C-c r") 'cider-eval-region)
+(dolist (hook '(clojure-mode-hook cider-mode-hook))
+  (add-hook hook
+  (lambda ()
+   (local-set-key (kbd "C-c r") 'cider-eval-region))))
+
+(add-hook 'emacs-lisp-mode-hook
+	  (lambda ()
+	    (local-set-key (kbd "C-c r") 'eval-region)))
+
+
 (global-set-key (kbd "C-c C-d") #'helpful-at-point)
 (global-set-key (kbd "C-c d") 'cider-debug-defun-at-point)
 (global-set-key (kbd "C-c x") 'company-complete)
@@ -293,6 +329,6 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;;;; MACROS ;;;;;
 (fset 'kar-start
-   (kmacro-lambda-form [?\C-x ?\C-f ?~ ?/ ?k ?a ?r tab ?k ?a ?. ?o ?r ?g return ?\C-x ?3 ?\C-x ?o ?\C-x ?\C-f ?j ?o ?u ?r ?n ?a ?l ?. ?o ?r ?g return S-tab S-tab S-tab ?\M-x ?v ?i ?s ?u tab return ?\C-x ?2 ?\C-x ?o ?\C-x ?\C-f ?s ?l ?u ?s ?h ?. ?o ?r ?g return tab ?n tab tab ?\M-x ?v ?i ?s ?u tab return ?\C-x ?o ?\M-x ?v ?i ?s ?u tab return ?\C-c ?\\ ?P ?R ?I ?O ?R ?I ?T ?Y ?= ?\" ?A ?\" return] 0 "%d"))
+      (kmacro-lambda-form [?\M-x ?f ?i ?n ?d ?- ?f ?i ?l ?e return ?~ ?/ ?k ?a ?r ?. ?k ?a backspace backspace backspace ?/ ?k ?a ?. ?o ?r ?g return ?\M-x ?h ?e ?l ?m ?- ?m ?o ?d ?e return ?\C-c ?\\ ?P ?R ?I ?O ?R ?I ?T ?Y ?= ?\" ?A ?\" return ?\M-x ?v ?i ?s ?u tab return ?\C-x ?3 ?\C-x ?o ?\M-x ?f ?i ?n ?d ?- ?f ?i ?l ?e return ?j ?o ?u ?r ?n ?a ?l ?. ?o ?r ?g return S-tab S-tab S-tab ?\M-x ?v ?i ?s ?u tab return ?\C-x ?2 ?\C-x ?o ?\M-x ?f ?i ?n ?d ?- ?f ?i ?l ?e return ?s ?l ?u ?s ?h ?. ?r backspace ?o ?r ?g return tab ?n tab tab ?\M-x ?v ?i ?s ?u tab return ?\C-x ?o ?\M-x ?h ?e ?l ?m ?- ?m ?o ?d ?e return] 0 "%d"))
 
 (global-set-key "\C-x\C-k\C-s" 'kar-start)
