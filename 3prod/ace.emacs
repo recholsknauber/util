@@ -289,7 +289,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (require 'cider)
 
 ;; Do not inject deps
-(setq cider-inject-dependencies-at-jack-in nil)
+;;(setq cider-inject-dependencies-at-jack-in nil)
 ;; Enable offline
 ;;(setq cider-lein-global-options "-o")
 ;; Set build to shadow-cljs
