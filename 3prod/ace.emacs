@@ -275,6 +275,15 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (require 'ob-clojure)
 (setq org-babel-clojure-backend 'cider)
 
+;;; EJC SQL
+(require 'ejc-sql)
+(add-hook 'ejc-sql-connected-hook
+          (lambda ()
+            (ejc-set-max-rows nil)	    
+	    (ejc-set-fetch-size 500)
+            (ejc-set-column-width-limit 15)
+            (ejc-set-show-too-many-rows-message t)
+            (ejc-set-use-unicode nil)))
 
 ;;; PHP
 (defun my-php-mode-setup ()
