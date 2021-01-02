@@ -303,6 +303,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 ;;; Global
 ;; (global-set-key (kbd "M-x butterfly") ')
+(global-set-key (kbd "C-c C--") 'shrink-window)
+(global-set-key (kbd "C-c C-=") 'enlarge-window)
 (global-set-key (kbd "C-c l") 'org-store-link)
 (global-set-key (kbd "C-c a") 'org-agenda)
 (global-set-key (kbd "C-c c") 'org-capture)
