@@ -1,0 +1,9 @@
+{
+  "configurations": [
+    {
+	"name": "js",
+	"type": "node",
+	"program":"node"
+    }
+  ]
+}
