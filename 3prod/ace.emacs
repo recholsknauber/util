@@ -291,6 +291,7 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 (global-set-key (kbd "C-c C-d") #'helpful-at-point)
 (global-set-key (kbd "C-c d") 'cider-debug-defun-at-point)
 (global-set-key (kbd "C-c x") 'company-complete)
+(global-set-key (kbd "C-c v") 'visual-line-mode)
 (global-set-key (kbd "C-x g") 'magit-status)
 
 ;;;;; LANGUAGE ENVIRONMENT FOR JAPANESE/CHINESE ;;;;;
@@ -330,8 +331,8 @@ PRIORITY may be one of the characters ?A, ?B, or ?C."
 
 (fset 'rk-double-down
       (kmacro-lambda-form [?\C-n ?\C-n] 0 "%d"))
-(global-set-key "M-n" 'rk-double-down)
+(global-set-key "\M-n" 'rk-double-down)
 
 (fset 'rk-double-up
    (kmacro-lambda-form [?\C-p ?\C-p] 0 "%d"))
-(global-set-key "M-p" 'rk-double-up)
+(global-set-key "\M-p" 'rk-double-up)
